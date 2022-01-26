@@ -32,21 +32,21 @@ jobs:
           
       - name: Install opa and then run Prancer
         run: |
-          curl -L -o opa https://openpolicyagent.org/downloads/v0.36.1/opa_linux_amd64_static
-          chmod 755 ./opa
-          ls -l
-          curpwd=`pwd`
-          opaexe="$curpwd/opa"
-          echo "### opa listing ###"
-          ls -l $opaexe
+          curl -L -o /usr/local/bin/opa https://openpolicyagent.org/downloads/v0.36.1/opa_linux_amd64_static
+          chmod 755 /usr/local/bin/opa
+          # ls -l
+          # curpwd=`pwd`
+          # opaexe="$curpwd/opa"
+          # echo "### opa listing ###"
+          ls -l /usr/local/bin/opa
           echo "### opa version ###"
-          $opaexe version
+          /usr/local/bin/opa version
           echo "### pwd ###"
           pwd
           cd $curpwd
           pwd
           echo "#### path ###"
-          export PATH=$curpwd:$PATH
+          export PATH=$PATH:$curpwd
           echo $PATH
           which opa
           echo "### helm ###"
