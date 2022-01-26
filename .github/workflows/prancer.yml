@@ -36,9 +36,14 @@ jobs:
           chmod 755 ./opa
           ls -l
           curpwd=`pwd`
+          opaexe="$curpwd/opa"
+          ls -l $opaexe
+          $opaeexe version
           export PATH=$curpwd:$PATH
-          export APITOKEN=${{ secrets.APITOKEN }}
-          export GITTOKEN=${{ secrets.GITTOKEN }}
-          prancer --db REMOTE --env QA --company prancer-liquware armof
+          echo $PATH
+          which opa
+          # export APITOKEN=${{ secrets.APITOKEN }}
+          # export GITTOKEN=${{ secrets.GITTOKEN }}
+          # prancer --db REMOTE --env QA --company prancer-liquware armof
 
           
