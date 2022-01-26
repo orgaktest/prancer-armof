@@ -42,7 +42,9 @@ jobs:
           echo "######"
           $opaexe version
           echo "######"
-          which opa
+          pwd
+          cd $curpwd
+          pwd
           echo "#######"
           export PATH=$curpwd:$PATH
           echo $PATH
