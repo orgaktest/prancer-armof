@@ -37,8 +37,13 @@ jobs:
           ls -l
           curpwd=`pwd`
           opaexe="$curpwd/opa"
+          echo "######"
           ls -l $opaexe
-          $opaeexe version
+          echo "######"
+          $opaexe version
+          echo "######"
+          which opa
+          echo "#######"
           export PATH=$curpwd:$PATH
           echo $PATH
           which opa
