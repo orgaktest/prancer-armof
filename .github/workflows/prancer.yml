@@ -29,30 +29,21 @@ jobs:
       - name: Install Prancer
         run: |
           pip3 install -U prancer-basic
-          
-      - name: Install opa and then run Prancer
+      
+      - name: Install opa 
         run: |
+          echo "opa and helm binariees required, helm is packaged with ubuntu, install opa only"
           curl -L -o /usr/local/bin/opa https://openpolicyagent.org/downloads/v0.36.1/opa_linux_amd64_static
           chmod 755 /usr/local/bin/opa
-          # ls -l
-          # curpwd=`pwd`
-          # opaexe="$curpwd/opa"
-          # echo "### opa listing ###"
-          ls -l /usr/local/bin/opa
-          echo "### opa version ###"
-          /usr/local/bin/opa version
-          echo "### pwd ###"
-          pwd
-          cd $curpwd
-          pwd
-          echo "#### path ###"
-          export PATH=$PATH:$curpwd
-          echo $PATH
+          echo "opa binary path..."
           which opa
-          echo "### helm ###"
+          echo "helm binary path..."
           which helm
-          # export APITOKEN=${{ secrets.APITOKEN }}
-          # export GITTOKEN=${{ secrets.GITTOKEN }}
-          # prancer --db REMOTE --env QA --company prancer-liquware armof
+          
+      - name: Run Prancer
+        run: |
+          export APITOKEN=${{ secrets.APITOKEN }}
+          export GITTOKEN=${{ secrets.GITTOKEN }}
+          prancer --db REMOTE --env QA --company prancer-liquware armof
 
           
