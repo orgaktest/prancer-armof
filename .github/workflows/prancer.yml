@@ -37,18 +37,20 @@ jobs:
           ls -l
           curpwd=`pwd`
           opaexe="$curpwd/opa"
-          echo "######"
+          echo "### opa listing ###"
           ls -l $opaexe
-          echo "######"
+          echo "### opa version ###"
           $opaexe version
-          echo "######"
+          echo "### pwd ###"
           pwd
           cd $curpwd
           pwd
-          echo "#######"
+          echo "#### path ###"
           export PATH=$curpwd:$PATH
           echo $PATH
           which opa
+          echo "### helm ###"
+          which helm
           # export APITOKEN=${{ secrets.APITOKEN }}
           # export GITTOKEN=${{ secrets.GITTOKEN }}
           # prancer --db REMOTE --env QA --company prancer-liquware armof
