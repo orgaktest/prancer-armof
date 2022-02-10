@@ -38,4 +38,4 @@ jobs:
         run: |
           export APITOKEN=${{ secrets.APITOKEN }}
           export GITTOKEN=${{ secrets.GITTOKEN }}
-          prancer --db REMOTE --company prancer-liquware armof
+          prancer --db REMOTE --company shahin --env DEV  test_gh_en_az_wz1
